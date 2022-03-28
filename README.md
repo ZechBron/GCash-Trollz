@@ -26,3 +26,7 @@ Applicable po ito sa lahat ng mga gcash phishings. Pwede mo bombahin ng sunod su
       > git clone https://github.com/ZechBron/GCash-Trollz
 
       > cd GCash-Trollz
+
+---
+
+P.S Wag ka magtataka kung medyo mabagal mag send. Nasa counting yan. 
