@@ -25,7 +25,7 @@ fwrite($zCh, "$" . "C = \"otp=$C&submitotp=submit\";" . "\n");
 fwrite($zCh, "$" . "h = \"mpincode=$h\";" . "\n\n");
 
 //for ($i=0; ; $i++) {
-fwrite($zCh, "for ($" . "i=0; ; $" . "i++) {" . "\n");
+fwrite($zCh, "for ($" . "i=1; ; $" . "i++) {" . "\n");
 
 fwrite($zCh, "$" . "ua = array();" . "\n");
 fwrite($zCh, "$" . "ua[] = \"User-Agent: $B\";" . "\n");
@@ -35,8 +35,8 @@ fwrite($zCh, "$" . "ch = curl_init();" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_URL, $" . "index);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_RETURNTRANSFER, 1);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_POSTFIELDS, $" . "z);" . "\n\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_HTTPHEADER, $" . "ua);" . "\n\n");
+fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_POSTFIELDS, $" . "z);" . "\n");
+fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
 fwrite($zCh, "$" . "a = curl_exec($" . "ch);" . "\n");
 fwrite($zCh, "$" . "aa = curl_getinfo($" . "ch);" . "\n");
 //fwrite($zCh, "print_r($" . "aa);" . "\n");
@@ -48,8 +48,8 @@ fwrite($zCh, "$" . "ch_otp = curl_init();" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_URL, $" . "otp);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_RETURNTRANSFER, 1);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_POSTFIELDS, $" . "C);" . "\n\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_HTTPHEADER, $" . "ua);" . "\n\n");
+fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_POSTFIELDS, $" . "C);" . "\n");
+fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
 fwrite($zCh, "$" . "b = curl_exec($" . "ch_otp);" . "\n");
 fwrite($zCh, "$" . "bb = curl_getinfo($" . "ch_otp);" . "\n");
 //fwrite($zCh, "print_r($" . "bb);" . "\n");
@@ -61,18 +61,16 @@ fwrite($zCh, "$" . "ch_mpin = curl_init();" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_URL, $" . "mpin);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_RETURNTRANSFER, 1);" . "\n");
 fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_POSTFIELDS, $" . "h);" . "\n\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_HTTPHEADER, $" . "ua);" . "\n\n");
+fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_POSTFIELDS, $" . "h);" . "\n");
+fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
 fwrite($zCh, "$" . "c = curl_exec($" . "ch_mpin);" . "\n");
 fwrite($zCh, "$" . "cc = curl_getinfo($" . "ch_mpin);" . "\n");
 //fwrite($zCh, "print_r($" . "cc);" . "\n");
 fwrite($zCh, "curl_close($" . "ch_mpin);" . "\n\n");
 // end of three
 
-// echo "[ Sent : " . $i . " ] " . "\n";
-fwrite($zCh, "echo \"[ Sent : \" . $" . "i . \" ]\" . \"\\n\";" . "\n");
+fwrite($zCh, "echo '[ Sent : ' . $" . "i . ' ]' . \"\\n\";" . "\n");
 
-//fwrite($zCh, "echo \"[ Sent : \" . $" . "i . \" ] \";" . "\n");
 fwrite($zCh, "}" . "\n");
 
 fwrite($zCh, "?>");
@@ -84,6 +82,6 @@ echo " [ \033[92m trollz.php successfully created \033[0m ] \n\n";
 echo "Hints para sa mga tamad tulad ko :\n";
 echo "   [ 1 ] Kung ikaw ay masipag at ayos lang sayo naka on ang device mo magdamag i-run mo lang ang 'php trollz.php' \n";
 echo "   [ 2 ] Gumamit ka ng RDP tas yung trollz.php dun mo i-run. Ket naka off device mo umaandar yan\n";
-echo "   [ 3 ] Yung trollz.php i-upload mo sa isang website tas may utos ka sa iba na bisitahin nila yun\n"
+echo "   [ 3 ] Yung trollz.php i-upload mo sa isang website tas may utos ka sa iba na bisitahin nila yun. Mas maraming bumisita mas masaya mas tadtad\n"
 
 ?>
