@@ -68,7 +68,7 @@ fwrite($zCh, "echo '[ Sent ] => ' . $" . "cc . \"\\n\";" . "\n");
 fwrite($zCh, "curl_close($" . "ch_mpin);" . "\n\n");
 // end of three
 
-fwrite($zCh, "echo '[ Sent : ' . $" . "i . ' ]' . \"\\n\";" . "\n");
+fwrite($zCh, "echo '[ Total Sent : ' . $" . "i . ' ]' . \"\\n\";" . "\n");
 
 fwrite($zCh, "}" . "\n");
 
