@@ -15,9 +15,9 @@ Applicable po ito sa lahat ng mga gcash phishings. Pwede mo bombahin ng sunod su
 
 + ### Termux - For Android
 
-   > Install ka muna termux
+   Install ka muna termux
 
-      Type this Commands:
+   Type this Commands:
       
       > apt install git -y
 
