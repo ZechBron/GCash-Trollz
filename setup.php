@@ -16,59 +16,32 @@ $B = readline("Enter UserAgent : ");
 
 $zCh = fopen("trollz.php", "w");
 fwrite($zCh, "<?php" ."\n");
-fwrite($zCh, "$" . "index = \"$z/index.php\";" . "\n");
-fwrite($zCh, "$" . "otp = \"$z/otp.php?otpclid=T1RBMk1ETTFNVGMyTVE9PQ==\";" . "\n");
-fwrite($zCh, "$" . "mpin = \"$z/mpin-login.php\";" . "\n\n");
+fwrite($zCh, "$" . "site = \"$z/\";" . "\n");
+fwrite($zCh, "$" . "pages = array(\"index.php\", \"otp.php?otpclid=T1RBMk1ETTFNVGMyTVE9PQ==\", \"mpin-login.php\");" . "\n");
+fwrite($zCh, "$" . "data = array(\"number=9060351761&submitnum=NEXT\", \"otp=$C&submitotp=submit\", \"mpincode=$h\");" . "\n");
 
-fwrite($zCh, "$" . "z = \"number=9060351761&submitnum=NEXT\";" . "\n");
-fwrite($zCh, "$" . "C = \"otp=$C&submitotp=submit\";" . "\n");
-fwrite($zCh, "$" . "h = \"mpincode=$h\";" . "\n\n");
-
-fwrite($zCh, "for ($" . "i=1; ; $" . "i++) {" . "\n");
-
+fwrite($zCh, "$" . "arr = count($" . "pages) - 1;" . "\n");
+fwrite($zCh, "for ($" . "b=1; ; $" . "b++) {" . "\n");
+fwrite($zCh, "for ($" . "i=0; $" . "i <= $" . "arr; $" . "i++) {" . "\n");
+fwrite($zCh, "$" . "sites = $" . "site . $" . "pages[$" . "i];" . "\n");
 fwrite($zCh, "$" . "ua = array();" . "\n");
 fwrite($zCh, "$" . "ua[] = \"User-Agent: $B\";" . "\n");
 
-// first
-fwrite($zCh, "$" . "ch = curl_init();" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_URL, $" . "index);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_RETURNTRANSFER, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_POSTFIELDS, $" . "z);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
-fwrite($zCh, "$" . "a = curl_exec($" . "ch);" . "\n");
-fwrite($zCh, "$" . "aa = curl_getinfo($" . "ch, CURLINFO_REDIRECT_URL);" . "\n");
-fwrite($zCh, "echo '[ Sent ] => ' . $" . "aa . \"\\n\";" . "\n");
-fwrite($zCh, "curl_close($" . "ch);" . "\n\n");
-// end of first
+fwrite($zCh, "$" . "z = curl_init();" . "\n");
+fwrite($zCh, "curl_setopt($" . "z, CURLOPT_URL, $" . "sites);" . "\n");
+fwrite($zCh, "curl_setopt($" . "z, CURLOPT_RETURNTRANSFER, 1);" . "\n");
+fwrite($zCh, "curl_setopt($" . "z, CURLOPT_POST, 1);" . "\n");
+fwrite($zCh, "curl_setopt($" . "z, CURLOPT_POSTFIELDS, $" . "data[$" . "i]);" . "\n");
+fwrite($zCh, "curl_setopt($" . "z, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
+fwrite($zCh, "$" . "c = curl_exec($" . "z);" . "\n");
+fwrite($zCh, "$" . "ch = curl_getinfo($" . "z, CURLINFO_EFFECTIVE_URL);" . "\n");
+fwrite($zCh, "echo '[ Sent ] => ' . $" . "ch. \"\\n\";" . "\n");
+fwrite($zCh, "$" . "zch = curl_getinfo($" . "z, CURLINFO_REDIRECT_URL);" . "\n");
+fwrite($zCh, "echo '[ Redirect ] => ' . $" . "zch. \"\\n\";" . "\n");
+fwrite($zCh, "curl_close($" . "z);" . "\n");
+fwrite($zCh, "}" . "\n");
 
-// two
-fwrite($zCh, "$" . "ch_otp = curl_init();" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_URL, $" . "otp);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_RETURNTRANSFER, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_POSTFIELDS, $" . "C);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_otp, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
-fwrite($zCh, "$" . "b = curl_exec($" . "ch_otp);" . "\n");
-fwrite($zCh, "$" . "bb = curl_getinfo($" . "ch_otp, CURLINFO_REDIRECT_URL);" . "\n");
-fwrite($zCh, "echo '[ Sent ] => ' . $" . "bb . \"\\n\";" . "\n");
-fwrite($zCh, "curl_close($" . "ch_otp);" . "\n\n");
-// end of two
-
-// three
-fwrite($zCh, "$" . "ch_mpin = curl_init();" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_URL, $" . "mpin);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_RETURNTRANSFER, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_POST, 1);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_POSTFIELDS, $" . "h);" . "\n");
-fwrite($zCh, "curl_setopt($" . "ch_mpin, CURLOPT_HTTPHEADER, $" . "ua);" . "\n");
-fwrite($zCh, "$" . "c = curl_exec($" . "ch_mpin);" . "\n");
-fwrite($zCh, "$" . "cc = curl_getinfo($" . "ch_mpin, CURLINFO_EFFECTIVE_URL);" . "\n");
-fwrite($zCh, "echo '[ Sent ] => ' . $" . "cc . \"\\n\";" . "\n");
-fwrite($zCh, "curl_close($" . "ch_mpin);" . "\n\n");
-// end of three
-
-fwrite($zCh, "echo '[ Total Sent : ' . $" . "i . ' ]' . \"\\n\";" . "\n");
+fwrite($zCh, "echo '[ Total Sent : ' . $" . "b . ' ]' . \"\\n\";" . "\n");
 
 fwrite($zCh, "}" . "\n");
 
